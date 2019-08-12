@@ -13,6 +13,7 @@
         </div>
     </div>
 </template>
+
 <script>
     import {getBetweenDateStr} from '../utils/computedDate'
     export default {
@@ -65,11 +66,15 @@
                             console.log(emitArr);
                             for(let i=0;i<this.daysArray.days.length;i++){
                                 if(emitArr.includes(this.daysArray.days[i].date)){
-                                    this.$set(this.daysArray.days[i], "isFirstDay", false);
-                                    this.$set(this.daysArray.days[i], "isEndDay", false);
-                                    this.$set(this.daysArray.days[i], "ischeckd", true);
+                                    // this.$set(this.daysArray.days[i], "isFirstDay", false);
+                                    // this.$set(this.daysArray.days[i], "isEndDay", false);
+                                    // this.$set(this.daysArray.days[i], "ischeckd", true);
+                                    this.daysArray.days[i].isFirstDay=false;
+                                    this.daysArray.days[i].isEndDay=false;
+                                    this.daysArray.days[i].ischeckd=true;
                                 }else{
-                                    this.$set(this.daysArray.days[i], "ischeckd", false);
+                                    //this.$set(this.daysArray.days[i], "ischeckd", false);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                                    this.daysArray.days[i].ischeckd=false;
                                 }
                             }
                             //wx.setStorageSync("hotelChooseDate",JSON.stringify(emitArr));
@@ -94,11 +99,15 @@
                                 console.log(emitArr);
                                 for(let i=0;i<this.daysArray.days.length;i++){
                                     if(emitArr.includes(this.daysArray.days[i].date)){
-                                        this.$set(this.daysArray.days[i], "isFirstDay", false);
-                                        this.$set(this.daysArray.days[i], "isEndDay", false);
-                                        this.$set(this.daysArray.days[i], "ischeckd", true);
+                                        this.daysArray.days[i].isFirstDay=false;
+                                        this.daysArray.days[i].isEndDay=false;
+                                        this.daysArray.days[i].ischeckd=true;
+                                        // this.$set(this.daysArray.days[i], "isFirstDay", false);
+                                        // this.$set(this.daysArray.days[i], "isEndDay", false);
+                                        // this.$set(this.daysArray.days[i], "ischeckd", true);
                                     }else{
-                                        this.$set(this.daysArray.days[i], "ischeckd", false);
+                                        this.daysArray.days[i].ischeckd=false;
+                                        //this.$set(this.daysArray.days[i], "ischeckd", false);
                                     }
                                 }
                                 this.$emit("chooseDate",timeSection);
@@ -112,8 +121,10 @@
                                 for(let i=0;i<this.daysArray.days.length;i++){
                                     if(this.daysArray.days[i].date==this.endDay){
                                         console.log(this.daysArray.days[i].isFirstDay);
-                                        this.$set(this.daysArray.days[i], "isFirstDay", false);
-                                        this.$set(this.daysArray.days[i], "isEndDay", true);
+                                        //this.$set(this.daysArray.days[i], "isFirstDay", false);
+                                        //this.$set(this.daysArray.days[i], "isEndDay", true);
+                                        this.daysArray.days[i].isFirstDay=false;
+                                        this.daysArray.days[i].isEndDay=true;
                                     }
                                 }
                                 console.log(this.daysArray.days);
@@ -128,11 +139,15 @@
                                 console.log(emitArr);
                                 for(let i=0;i<this.daysArray.days.length;i++){
                                     if(emitArr.includes(this.daysArray.days[i].date)){
-                                        this.$set(this.daysArray.days[i], "isFirstDay", false);
-                                        this.$set(this.daysArray.days[i], "isEndDay", false);
-                                        this.$set(this.daysArray.days[i], "ischeckd", true);
+                                        //this.$set(this.daysArray.days[i], "isFirstDay", false);
+                                        //this.$set(this.daysArray.days[i], "isEndDay", false);
+                                        //this.$set(this.daysArray.days[i], "ischeckd", true);
+                                        this.daysArray.days[i].isFirstDay=false;
+                                        this.daysArray.days[i].isEndDay=false;
+                                        this.daysArray.days[i].ischeckd=true;
                                     }else{
-                                        this.$set(this.daysArray.days[i], "ischeckd", false);
+                                        //this.$set(this.daysArray.days[i], "ischeckd", false);
+                                        this.daysArray.days[i].ischeckd=false;
                                     }
                                 }
                                 this.$emit("chooseDate",timeSection);
@@ -146,17 +161,22 @@
                         item.isEndDay=false;
                         item.isFirstDay=false;
                         item.ischeckd=false;
+                        this.$emit("nochoose","0");
                     }else if(this.startDay!=="" && this.endDay!=="" ){  // 已有起始时间 结束时间，第三次点击
                         for(let i=0;i<this.daysArray.days.length;i++){
-                            this.$set(this.daysArray.days[i], "isFirstDay", false);
-                            this.$set(this.daysArray.days[i], "isEndDay", false);
-                            this.$set(this.daysArray.days[i], "ischeckd", false);
+                            //this.$set(this.daysArray.days[i], "isFirstDay", false);
+                            //this.$set(this.daysArray.days[i], "isEndDay", false);
+                            //this.$set(this.daysArray.days[i], "ischeckd", false);
+                            this.daysArray.days[i].isFirstDay=false;
+                            this.daysArray.days[i].isEndDay=false;
+                            this.daysArray.days[i].ischeckd=false;
                         }
                         this.startDay=item.date;
                         this.endDay="";
                         item.isFirstDay=true;
                         wx.removeStorageSync("hotelChooseDate");
                         wx.setStorageSync('hotelFirstDate', item.date);
+                        this.$emit("nochoose","0");
                     }
                 }
             }
@@ -172,26 +192,34 @@
                 if(chooseHotel!==null){
                     for(let i=0;i<newValue.days.length;i++){
                         if(chooseHotel.includes(newValue.days[i].date)){
-                            this.$set(newValue.days[i], "isFirstDay", false);
-                            this.$set(newValue.days[i], "isEndDay", false);
-                            this.$set(newValue.days[i], "ischeckd", true);
+                            //this.$set(newValue.days[i], "isFirstDay", false);
+                            //this.$set(newValue.days[i], "isEndDay", false);
+                            //this.$set(newValue.days[i], "ischeckd", true);
+                            this.daysArray.days[i].isFirstDay=false;
+                            this.daysArray.days[i].isEndDay=false;
+                            this.daysArray.days[i].ischeckd=true;
                         }else{
-                            this.$set(newValue.days[i], "ischeckd", false);
+                            this.daysArray.days[i].ischeckd=false;
+                            //this.$set(newValue.days[i], "ischeckd", false);
                         }
                         if(newValue.days[i].date!=_firstDay && newValue.days[i].isFirstDay==true){
-                            this.$set(newValue.days[i], "isFirstDay", false);
-                            this.$set(newValue.days[i], "isEndDay", true);
-                            this.$set(newValue.days[i], "ischeckd", false);
+                            // this.$set(newValue.days[i], "isFirstDay", false);
+                            // this.$set(newValue.days[i], "isEndDay", true);
+                            // this.$set(newValue.days[i], "ischeckd", false);
+                            this.daysArray.days[i].isFirstDay=false;
+                            this.daysArray.days[i].isEndDay=true;
+                            this.daysArray.days[i].ischeckd=false;
                         }
                         if(newValue.days[i].isFirstDay==true && newValue.days[i].date!=this.startDay){
-                            this.$set(newValue.days[i], "isFirstDay", false);
+                            //this.$set(newValue.days[i], "isFirstDay", false);
+                            this.daysArray.days[i].isFirstDay=false;
                         }
                         if(newValue.days[i].isEndDay==true && newValue.days[i].date!=this.endDay){
-                            this.$set(newValue.days[i], "isEndDay", false);
+                            //this.$set(newValue.days[i], "isEndDay", false);
+                            this.daysArray.days[i].isEndDay=false;
                         }
                     }
                 }else{
-
                 }
             }
         },

@@ -1,9 +1,9 @@
 <template>
   <div class="wraper">
     <div class="msg">{{msg}}</div>
-    <click-counter :init-num="10" @clickNum="handleClickNum"></click-counter>
-    <click-counter :init-num="20" @clickNum="handleClickNum"></click-counter>
-    <click-counter :init-num="30" @clickNum="handleClickNum"></click-counter>
+    <click-counter :init-num="postNum" @changeParent="clickNums"></click-counter>
+    <!-- <click-counter :init-num="20" @clickNum="handleClickNum"></click-counter>
+    <click-counter :init-num="30" @clickNum="handleClickNum"></click-counter> -->
     <div class="methodsTest" @click="toast">
         showToast
     </div>
@@ -26,6 +26,10 @@ export default {
   methods:{
       handleClickNum(data){
            console.log(">>>>>>", data.num);
+      },
+      clickNums(data){
+        console.log(data);
+        this.postNum=data;
       },
       toast(){
           util.showErrorToastMessage("test");

@@ -32,8 +32,8 @@
                         <span>{{dateArray[fistIndex].month}}</span>
                         <span @click="nextMonth">next</span>
                     </div>
-                    <date-component :daysArray="dateArray[fistIndex]" @chooseDate="getChooseDate"></date-component>
-                    <div class="ebooking" v-if="btnVisiby">{{yuding}}</div>
+                    <date-component :daysArray="dateArray[fistIndex]" @chooseDate="getChooseDate" @nochoose="noChoose"></date-component>
+                    <div class="ebooking" v-if="btnVisiby" @click="booking">{{yuding}}</div>
                     <div class="ebooking-error" v-if="!btnVisiby">{{errorText}}</div>
                 </div>
             </div>
@@ -61,43 +61,7 @@ export default {
                 yuding:"立即预定",
                 errorText:"您所选的日期包含满房日期",
                 dateArray:[
-                   
                     {
-                        month:"2019年5月",
-                        days:[
-                            {date:"2019/05/01",price:"323"}, {date:"2019/05/02",price:"323"},{date:"2019/05/03",price:"323"}, {date:"2019/05/04",price:"323"}, {date:"2019/05/05",price:"323"},
-                            {date:"2019/05/06",price:"323",full:true}, {date:"2019/05/07",price:"323"}, {date:"2019/05/08",price:"323"}, {date:"2019/05/09",price:"323"}, {date:"2019/05/10",price:"323"},
-                            {date:"2019/05/11",price:"323"}, {date:"2019/05/12",price:"323"}, {date:"2019/05/13",price:"323"}, {date:"2019/05/14",price:"323"},{date:"2019/05/15",price:"323"},
-                            {date:"2019/05/16",price:"323"}, {date:"2019/05/17",price:"323",full:true}, {date:"2019/05/18",price:"323"}, {date:"2019/05/19",price:"323"},{date:"2019/05/20",price:"323"},
-                            {date:"2019/05/21",price:"323"},{date:"2019/05/22",price:"323"},{date:"2019/05/23",price:"323"},{date:"2019/05/24",price:"323"},{date:"2019/05/25",price:"323"},
-                            {date:"2019/05/26",price:"323"},{date:"2019/05/27",price:"323",full:true},{date:"2019/05/28",price:"323",full:true},{date:"2019/05/29",price:"323"},{date:"2019/05/30",price:"323"},
-                            {date:"2019/05/31",price:"323"}
-                        ]
-                    },
-                    {
-                        month:"2019年6月",
-                        days:[
-                            {date:"2019/06/01",price:"323"}, {date:"2019/06/02",price:"323"},{date:"2019/06/03",price:"323"}, {date:"2019/06/04",price:"323"}, {date:"2019/06/05",price:"323"},
-                            {date:"2019/06/06",price:"323",full:true}, {date:"2019/06/07",price:"323"}, {date:"2019/06/08",price:"323"}, {date:"2019/06/09",price:"323"}, {date:"2019/06/10",price:"323"},
-                            {date:"2019/06/11",price:"323"}, {date:"2019/06/12",price:"323",full:true}, {date:"2019/06/13",price:"323",full:true}, {date:"2019/06/14",price:"323"},{date:"2019/06/15",price:"323"},
-                            {date:"2019/06/16",price:"323"}, {date:"2019/06/17",price:"323"}, {date:"2019/06/18",price:"323"}, {date:"2019/06/19",price:"323"},{date:"2019/06/20",price:"323"},
-                            {date:"2019/06/21",price:"323"},{date:"2019/06/22",price:"323"},{date:"2019/06/23",price:"323",full:true},{date:"2019/06/24",price:"323"},{date:"2019/06/25",price:"323"},
-                            {date:"2019/06/26",price:"323"},{date:"2019/06/27",price:"323"},{date:"2019/06/28",price:"323"},{date:"2019/06/29",price:"323"},{date:"2019/06/30",price:"323"}
-                        ]
-                    },
-                    {
-                        month:"2019年7月",
-                        days:[
-                            {date:"2019/07/01",price:"323"}, {date:"2019/07/02",price:"323"},{date:"2019/07/03",price:"323"}, {date:"2019/07/04",price:"323"}, {date:"2019/07/05",price:"323"},
-                            {date:"2019/07/06",price:"323"}, {date:"2019/07/07",price:"323"}, {date:"2019/07/08",price:"323"}, {date:"2019/07/09",price:"323"}, {date:"2019/07/10",price:"323"},
-                            {date:"2019/07/11",price:"323"}, {date:"2019/07/12",price:"323"}, {date:"2019/07/13",price:"323"}, {date:"2019/07/14",price:"323"},{date:"2019/07/15",price:"323"},
-                            {date:"2019/07/16",price:"323"}, {date:"2019/07/17",price:"323"}, {date:"2019/07/18",price:"323"}, {date:"2019/07/19",price:"323"},{date:"2019/07/20",price:"323"},
-                            {date:"2019/07/21",price:"323"},{date:"2019/07/22",price:"323"},{date:"2019/07/23",price:"323"},{date:"2019/07/24",price:"323"},{date:"2019/07/25",price:"323"},
-                            {date:"2019/07/26",price:"323"},{date:"2019/07/27",price:"323"},{date:"2019/07/28",price:"323"},{date:"2019/07/29",price:"323"},{date:"2019/07/30",price:"323"},
-                            {date:"2019/07/31",price:"323"}
-                        ]
-                    },
-                     {
                         month:"2019年8月",
                         days:[
                             {date:"2019/08/01",price:"323"}, {date:"2019/08/02",price:"323"},{date:"2019/08/03",price:"323"}, {date:"2019/08/04",price:"323"}, {date:"2019/08/05",price:"323"},
@@ -109,8 +73,41 @@ export default {
                             {date:"2019/08/31",price:"323"}
 
                         ]
+                    },
+                    {
+                        month:"2019年9月",
+                        days:[
+                            {date:"2019/09/01",price:"323"}, {date:"2019/09/02",price:"323"},{date:"2019/09/03",price:"323"}, {date:"2019/09/04",price:"323"}, {date:"2019/09/05",price:"323"},
+                            {date:"2019/09/06",price:"323",full:true}, {date:"2019/09/07",price:"323"}, {date:"2019/09/08",price:"323"}, {date:"2019/09/09",price:"323"}, {date:"2019/09/10",price:"323"},
+                            {date:"2019/09/11",price:"323"}, {date:"2019/09/12",price:"323"}, {date:"2019/09/13",price:"323"}, {date:"2019/09/14",price:"323"},{date:"2019/09/15",price:"323"},
+                            {date:"2019/09/16",price:"323"}, {date:"2019/09/17",price:"323",full:true}, {date:"2019/09/18",price:"323"}, {date:"2019/09/19",price:"323"},{date:"2019/09/20",price:"323"},
+                            {date:"2019/09/21",price:"323"},{date:"2019/09/22",price:"323"},{date:"2019/09/23",price:"323"},{date:"2019/09/24",price:"323"},{date:"2019/09/25",price:"323"},
+                            {date:"2019/09/26",price:"323"},{date:"2019/09/27",price:"323",full:true},{date:"2019/09/28",price:"323",full:true},{date:"2019/09/29",price:"323"},{date:"2019/09/30",price:"323"}
+                        ]
+                    },
+                    {
+                        month:"2019年10月",
+                        days:[
+                            {date:"2019/10/01",price:"323"}, {date:"2019/10/02",price:"323"},{date:"2019/10/03",price:"323"}, {date:"2019/10/04",price:"323"}, {date:"2019/10/05",price:"323"},
+                            {date:"2019/10/06",price:"323",full:true}, {date:"2019/10/07",price:"323"}, {date:"2019/10/08",price:"323"}, {date:"2019/10/09",price:"323"}, {date:"2019/10/10",price:"323"},
+                            {date:"2019/10/11",price:"323"}, {date:"2019/10/12",price:"323",full:true}, {date:"2019/10/13",price:"323",full:true}, {date:"2019/10/14",price:"323"},{date:"2019/10/15",price:"323"},
+                            {date:"2019/10/16",price:"323"}, {date:"2019/10/17",price:"323"}, {date:"2019/10/18",price:"323"}, {date:"2019/10/19",price:"323"},{date:"2019/10/20",price:"323"},
+                            {date:"2019/10/21",price:"323"},{date:"2019/10/22",price:"323"},{date:"2019/10/23",price:"323",full:true},{date:"2019/10/24",price:"323"},{date:"2019/10/25",price:"323"},
+                            {date:"2019/10/26",price:"323"},{date:"2019/10/27",price:"323"},{date:"2019/10/28",price:"323"},{date:"2019/10/29",price:"323"},{date:"2019/10/30",price:"323"},
+                            {date:"2019/10/31",price:"323"}
+                        ]
+                    },
+                    {
+                        month:"2019年11月",
+                        days:[
+                            {date:"2019/11/01",price:"323"}, {date:"2019/11/02",price:"323"},{date:"2019/11/03",price:"323"}, {date:"2019/11/04",price:"323"}, {date:"2019/11/05",price:"323"},
+                            {date:"2019/11/06",price:"323"}, {date:"2019/11/07",price:"323"}, {date:"2019/11/08",price:"323"}, {date:"2019/11/09",price:"323"}, {date:"2019/11/10",price:"323"},
+                            {date:"2019/11/11",price:"323"}, {date:"2019/11/12",price:"323"}, {date:"2019/11/13",price:"323"}, {date:"2019/11/14",price:"323"},{date:"2019/11/15",price:"323"},
+                            {date:"2019/11/16",price:"323"}, {date:"2019/11/17",price:"323"}, {date:"2019/11/18",price:"323"}, {date:"2019/11/19",price:"323"},{date:"2019/11/20",price:"323"},
+                            {date:"2019/11/21",price:"323"},{date:"2019/11/22",price:"323"},{date:"2019/11/23",price:"323"},{date:"2019/11/24",price:"323"},{date:"2019/11/25",price:"323"},
+                            {date:"2019/11/26",price:"323"},{date:"2019/11/27",price:"323"},{date:"2019/11/28",price:"323"},{date:"2019/11/29",price:"323"},{date:"2019/11/30",price:"323"}
+                        ]
                     }
-
                 ],
                 allDays:[]
         }
@@ -142,6 +139,7 @@ export default {
             }
         },
         getChooseDate(data){
+            console.log(data);
             let arr=data;
             this.totalPrice=0;
             if(Array.isArray(arr)){
@@ -184,6 +182,9 @@ export default {
         },
         closeModel(){
             this.popupVisible=false;
+        },
+        noChoose(){
+            this.yuding="立即预定";
         },
         getAllDates(){
             let week=["日","一","二","三","四","五","六"];

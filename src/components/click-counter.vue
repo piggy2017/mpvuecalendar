@@ -5,6 +5,7 @@
       <div class="add btn" @click="add">add+</div>
       <div class="reduce btn" @click="reduce">reduce-</div>
       <div class="reset btn" @click="reset">reset</div>
+      <div class="parent btn" @click="parent">parent</div>
     </div>
     <div class="text-stylus"></div>
   </div>
@@ -31,14 +32,19 @@ export default {
       this.num -= 1;
       this.notifyNum();
     },
+    parent(){
+      let _par=15;
+      console.log(_par)
+      this.$emit("changeParent",_par);
+    },
     reset() {
       this.num = 0;
       this.notifyNum();
     },
     notifyNum() {
-      this.$emit("clickNum", {
-        num: this.num
-      });
+      // this.$emit("clickNum", {
+      //   num: this.num
+      // });
     }
   },
   watch: {
@@ -72,7 +78,7 @@ export default {
     background-color themeColor ;
 }
 .btn {
-  width: 200rpx;
+  width: 150rpx;
   height: 60rpx;
   border-radius: 8rpx;
   text-align: center;

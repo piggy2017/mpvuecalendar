@@ -82,7 +82,7 @@ export default {
                             })
                         // if (that.navUrl && that.navUrl == 'pages/index/main') {
                         //     wx.switchTab({
-                        //         url: that.data.navUrl,
+                        //         url: that..navUrl,
                         //     })
                         // } else if (that.navUrl && that.navUrl == 'pages/cart/main') {
                         //     console.log("cart");
