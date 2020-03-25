@@ -13,7 +13,6 @@
         </div>
     </div>
 </template>
-
 <script>
     import {getBetweenDateStr} from '../utils/computedDate'
     export default {
@@ -273,7 +272,7 @@
         color #fff
     }
     .check-in-day{
-        background-color orange !important;
+        background-color orange !important
         color #fff
     }
 }

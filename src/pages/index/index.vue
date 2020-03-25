@@ -98,7 +98,7 @@ export default {
     };
   },
   created() {
-    this.getHots();
+    //this.getHots();
   },
 
   methods: {
