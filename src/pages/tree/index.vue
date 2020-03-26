@@ -89,7 +89,7 @@ export default {
                         {date:"2020/03/11",price:"323"}, {date:"2020/03/12",price:"323",full:true}, {date:"2020/03/13",price:"323",full:true}, {date:"2020/03/14",price:"323"},{date:"2020/03/15",price:"323"},
                         {date:"2020/03/16",price:"323"}, {date:"2020/03/17",price:"323"}, {date:"2020/03/18",price:"323"}, {date:"2020/03/19",price:"323"},{date:"2020/03/20",price:"323"},
                         {date:"2020/03/21",price:"323"},{date:"2020/03/22",price:"323"},{date:"2020/03/23",price:"323",full:true},{date:"2020/03/24",price:"323"},{date:"2020/03/25",price:"323"},
-                        {date:"2020/03/26",price:"323"},{date:"2020/03/27",price:"323"},{date:"2020/03/28",price:"323"},{date:"2020/03/29",price:"323"},{date:"2020/03/30",price:"323"},{date:"2020/03/33",price:"323"}
+                        {date:"2020/03/26",price:"323"},{date:"2020/03/27",price:"323"},{date:"2020/03/28",price:"323"},{date:"2020/03/29",price:"323"},{date:"2020/03/30",price:"323"},{date:"2020/03/31",price:"323"}
                     ]
                 },
                 {
@@ -100,7 +100,7 @@ export default {
                         {date:"2020/04/11",price:"323"}, {date:"2020/04/12",price:"323",full:true}, {date:"2020/04/13",price:"323",full:true}, {date:"2020/04/14",price:"323"},{date:"2020/04/15",price:"323"},
                         {date:"2020/04/16",price:"323"}, {date:"2020/04/17",price:"323"}, {date:"2020/04/18",price:"323"}, {date:"2020/04/19",price:"323"},{date:"2020/04/20",price:"323"},
                         {date:"2020/04/21",price:"323"},{date:"2020/04/22",price:"323"},{date:"2020/04/23",price:"323",full:true},{date:"2020/04/24",price:"323"},{date:"2020/04/25",price:"323"},
-                        {date:"2020/04/26",price:"323"},{date:"2020/04/27",price:"323"},{date:"2020/04/28",price:"323"},{date:"2020/04/29",price:"323"},{date:"2020/0430",price:"323"}
+                        {date:"2020/04/26",price:"323"},{date:"2020/04/27",price:"323"},{date:"2020/04/28",price:"323"},{date:"2020/04/29",price:"323"},{date:"2020/04/30",price:"323"}
                     ]
                 },
                 {
