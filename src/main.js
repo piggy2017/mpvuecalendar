@@ -15,6 +15,7 @@ export default {
       "pages/tree/main",
       "pages/cart/main",
       "pages/auth/main",
+      "pages/vr/main",
       "pages/detail/main"
     ],
     window: {

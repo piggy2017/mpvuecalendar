@@ -80,6 +80,7 @@
         </view>
     </view>
     <view class="query-test" @click="goDetail">click me</view>
+    <view class="query-test" @click="goVr">go vr</view>
   </view>
 </template>
 
@@ -108,6 +109,11 @@ export default {
     goDetail(){
         wx.navigateTo({
           url:"../detail/main?id="+this.testId
+        })
+    },
+    goVr(){
+        wx.navigateTo({
+          url:"../vr/main"
         })
     },
     getHots() {
